@@ -1,0 +1,10 @@
+[Unit]
+Description=Yakuake Automation Service
+After=network.target
+
+[Service]
+ExecStart=/bin/bash -c "if ! pgrep -x 'yakuake' > /dev/null; then yakuake --hide-tabbar; fi; yakuake -t"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
